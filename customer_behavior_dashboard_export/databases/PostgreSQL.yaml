@@ -1,0 +1,18 @@
+database_name: PostgreSQL
+sqlalchemy_uri: postgresql+psycopg2://superset:XXXXXXXXXX@127.0.0.1:5432/customer_behavior
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: false
+allow_file_upload: false
+extra:
+  metadata_params: {}
+  engine_params: {}
+  metadata_cache_timeout: {}
+  schemas_allowed_for_file_upload: []
+impersonate_user: false
+configuration_method: dynamic_form
+uuid: f30f06a2-63ce-49a7-9ad6-4dec206f5d6e
+version: 1.0.0
