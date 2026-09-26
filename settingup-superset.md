@@ -21,18 +21,17 @@ Superset.
 ```SQL
 CREATE ROLE analytic LOGIN;
 
--- Grant database and schema access
+-- Allow the role to access the database
 GRANT CONNECT ON DATABASE customer_behavior TO analytic;
+
+-- Allow access to objects inside the schema
 GRANT USAGE ON SCHEMA public TO analytic;
 
--- Read all existing tables and views
+-- Allow reading existing tables
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO analytic;
 
--- Access existing sequences
-GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO analytic;
-
--- Execute existing functions
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO analytic;
+-- Assign the permission role to the Superset user
+GRANT analytic TO superset;
 ```
 
 **Automatically grant privileges on future objects**
