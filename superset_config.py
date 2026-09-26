@@ -1,0 +1,2 @@
+SECRET_KEY="IiZRF4LMp1oUgZcqRy+IXCzsNuMZpeVymkbxHFJ/qqiVY83PAL/ZaHcN"
+FLASK_APP="superset"
