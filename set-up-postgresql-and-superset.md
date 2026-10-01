@@ -1,15 +1,47 @@
-# Setting up Superset
+# Set up PostgreSQL and Superset
 
-The aim is to show an step by step for install(via python), cofigure Superset. I am using PostgresSQL. So this guiede assume
-that PostgreSQL is already instaled.
-
-From postgreSQL we will need user with read acess to use in
-Superset.
+In postgreSQL we will need user with read acess to use in Superset.
 
 > [!WARNING]
 > Tutorial for Debian and Ubuntu
 
-## Configure PostgreSQL
+## Install and configure PostgreSQL
+
+Next, I will put the csv inside a Database.
+
+`apt install postgresql`
+
+### Install
+  - Update your package list: `sudo apt update`
+  - Install PostgreSQL and the companion tools: `sudo apt install -y postgresql postgresql-contrib`
+  - Make sure the service is running: `sudo systemctl start postgresql`
+  - Enable it to start automatically on boot: `sudo systemctl enable postgresql`
+
+### Access the Database
+- Switch to the default system user named postgres: `sudo -i -u postgres`
+- Open the SQL command prompt: `psql`
+- Close the prompt when finished: `\q`
+
+### Create Database and User
+- Create a new database: `CREATE DATABASE customer_behavior`;
+- List all databases: `\l`
+- Connect to a specific database: `\c customer_behavior`
+- Create a new user with a password: `CREATE USER <user> WITH ENCRYPTED PASSWORD '<password>'`;
+
+```SQL
+
+-- grant access to user
+GRANT pg_monitor TO <user>;
+
+ALTER USER <user> SET SEARCH_PATH TO postgres,pg_catalog;
+
+GRANT CONNECT ON DATABASE postgres TO <user>;
+
+GRANT USAGE ON SCHEMA pg_catalog TO <user>;
+GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO <user>;
+
+GRANT pg_monitor TO <user>;
+```
 
 ### create an analytic(read only access) role in PostgreSQL
  ```bash 
@@ -58,7 +90,8 @@ Ref [here](https://www.crunchydata.com/blog/creating-a-read-only-postgres-user)
  ```bash 
  sudo -i -u postgres
  ```
- ```psql <dbname>
+ ```bash
+ psql <dbname>
  ```
 
 ```SQL
