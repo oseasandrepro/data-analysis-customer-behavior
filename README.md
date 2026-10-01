@@ -25,3 +25,12 @@ to highly detailed geospatial charts."
 Check how to set up PostgreSQL and Apache Superset [here](./set-up-postgresql-and-superset.md)
 
 Check the Data exploration and analysis using Python and SQL in [this notebook](./customer-shopping-behavior-analysis.ipynb)
+This file contains:
+ - Data Import
+ - Data exploration
+ - Data cleaning
+ - Connection to SQL Database
+
+
+
+[Reference Project](https://github.com/amlanmohanty1/customer-trends-data-analysis-SQL-Python-PowerBI)
