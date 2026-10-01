@@ -8,6 +8,7 @@ Key technical components: Data exploration and analysis using Python and SQL; Cu
 
 **Insted of Use Power BI I decide to use Superset as business intelligence tool**
 Because it is open-source and it can be configured locally with PostgreSQL or other database so this repository cold work as path way for an "stand alone" solution for pratice of: Data exploration and analysis and Interactive dashboard development.
+
 ---
 
 "[Apache Superset](https://superset.apache.org/) is an open-source modern data exploration and visualization platform.
